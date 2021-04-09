@@ -70,12 +70,14 @@ const uniformM = (fn: SetterM, sysDefault?: ReadonlyVec) => (
 
 const Z1 = [0];
 
-export const UNIFORM_SETTERS: IObjectOf<Fn3<
-    WebGLRenderingContext,
-    WebGLUniformLocation,
-    number | ReadonlyVec | undefined,
-    Fn<UniformValue | undefined | null, void>
->> = <any>{
+export const UNIFORM_SETTERS: IObjectOf<
+    Fn3<
+        WebGLRenderingContext,
+        WebGLUniformLocation,
+        number | ReadonlyVec | undefined,
+        Fn<UniformValue | undefined | null, void>
+    >
+> = <any>{
     bool: uniformS("i"),
     float: uniformS("f"),
     int: uniformS("i"),
@@ -89,9 +91,12 @@ export const UNIFORM_SETTERS: IObjectOf<Fn3<
     vec2: uniformV("2fv", ZERO2),
     vec3: uniformV("3fv", ZERO3),
     vec4: uniformV("4fv", ZERO4),
-    mat2: uniformM("2fv", IDENT22),
-    mat3: uniformM("3fv", IDENT33),
-    mat4: uniformM("4fv", IDENT44),
+    // mat2: uniformM("2fv", IDENT22),
+    mat2x2: uniformM("2fv", IDENT22),
+    // mat3: uniformM("3fv", IDENT33),
+    mat3x3: uniformM("3fv", IDENT33),
+    // mat4: uniformM("4fv", IDENT44),
+    mat4x4: uniformM("4fv", IDENT44),
     sampler2D: uniformS("i"),
     sampler2DShadow: uniformS("i"),
     sampler3D: uniformS("i"),
@@ -110,9 +115,12 @@ export const UNIFORM_SETTERS: IObjectOf<Fn3<
     "vec2[]": uniformV("2fv", ZERO2),
     "vec3[]": uniformV("3fv", ZERO3),
     "vec4[]": uniformV("4fv", ZERO4),
-    "mat2[]": uniformM("2fv", ZERO2),
-    "mat3[]": uniformM("3fv", ZERO3),
-    "mat4[]": uniformM("4fv", ZERO4),
+    // "mat2[]": uniformM("2fv", ZERO2),
+    "mat2x2[]": uniformM("2fv", ZERO2),
+    // "mat3[]": uniformM("3fv", ZERO3),
+    "mat3x3[]": uniformM("3fv", ZERO3),
+    // "mat4[]": uniformM("4fv", ZERO4),
+    "mat4x4[]": uniformM("4fv", ZERO4),
     "sampler2D[]": uniformV("1iv", Z1),
     "sampler2DShadow[]": uniformV("1iv", Z1),
     "sampler3D[]": uniformV("1iv", Z1),

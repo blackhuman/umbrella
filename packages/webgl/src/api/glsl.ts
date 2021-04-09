@@ -20,6 +20,8 @@ export type GLMat4 = Tuple<number, 16> | Float32Array;
 export type GLMat23 = Tuple<number, 6> | Float32Array;
 export type GLMat24 = Tuple<number, 8> | Float32Array;
 export type GLMat34 = Tuple<number, 12> | Float32Array;
+export type GLMat42 = Tuple<number, 8> | Float32Array;
+export type GLMat43 = Tuple<number, 12> | Float32Array;
 
 export type GLSLScalarType =
     | "bool"
@@ -46,15 +48,18 @@ export type GLSLArrayType =
     | "vec2[]"
     | "vec3[]"
     | "vec4[]"
-    | "mat2[]"
-    | "mat3[]"
-    | "mat4[]"
-    // | "mat2x3[]"
-    // | "mat2x4[]"
-    // | "mat3x2[]"
-    // | "mat3x4[]"
-    // | "mat4x2[]"
-    // | "mat4x3[]"
+    // | "mat2[]"
+    | "mat2x2[]"
+    | "mat2x3[]"
+    | "mat2x4[]"
+    // | "mat3[]"
+    | "mat3x2[]"
+    | "mat3x3[]"
+    | "mat3x4[]"
+    // | "mat4[]"
+    | "mat4x2[]"
+    | "mat4x3[]"
+    | "mat4x4[]"
     | "sampler2D[]"
     | "sampler3D[]"
     | "samplerCube[]";

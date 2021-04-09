@@ -83,10 +83,10 @@ export const LAMBERT = (opts: Partial<LambertOpts> = {}): ShaderSpec => ({
         ...(opts.uv ? { vuv: "vec2" } : null),
     },
     uniforms: {
-        model: "mat4",
-        view: "mat4",
-        proj: "mat4",
-        normalMat: ["mat4", autoNormalMatrix2()],
+        model: "mat4x4",
+        view: "mat4x4",
+        proj: "mat4x4",
+        normalMat: ["mat4x4", autoNormalMatrix2()],
         lightDir: ["vec3", [0, 1, 0]],
         lightCol: ["vec3", [1, 1, 1]],
         ...defMaterial(

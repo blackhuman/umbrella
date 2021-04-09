@@ -20,8 +20,13 @@ import type {
     GLIntVec3,
     GLIntVec4,
     GLMat2,
+    GLMat23,
+    GLMat24,
     GLMat3,
+    GLMat34,
     GLMat4,
+    GLMat42,
+    GLMat43,
     GLSL,
     GLSLArrayType,
     GLSLScalarType,
@@ -86,15 +91,18 @@ export type UniformDecl =
     | ["vec2", UniformDefault<GLVec2>]
     | ["vec3", UniformDefault<GLVec3>]
     | ["vec4", UniformDefault<GLVec4>]
-    | ["mat2", UniformDefault<GLMat2>]
-    | ["mat3", UniformDefault<GLMat3>]
-    | ["mat4", UniformDefault<GLMat4>]
-    // | ["mat2x3", UniformDefault<GLMat23>]
-    // | ["mat2x4", UniformDefault<GLMat24>]
-    // | ["mat3x2", UniformDefault<GLMat23>]
-    // | ["mat3x4", UniformDefault<GLMat34>]
-    // | ["mat4x2", UniformDefault<GLMat24>]
-    // | ["mat4x3", UniformDefault<GLMat34>]
+    // | ["mat2", UniformDefault<GLMat2>]
+    | ["mat2x2", UniformDefault<GLMat2>]
+    | ["mat2x3", UniformDefault<GLMat23>]
+    | ["mat2x4", UniformDefault<GLMat24>]
+    // | ["mat3", UniformDefault<GLMat3>]
+    | ["mat3x2", UniformDefault<GLMat23>]
+    | ["mat3x3", UniformDefault<GLMat3>]
+    | ["mat3x4", UniformDefault<GLMat34>]
+    // | ["mat4", UniformDefault<GLMat4>]
+    | ["mat4x2", UniformDefault<GLMat42>]
+    | ["mat4x3", UniformDefault<GLMat43>]
+    | ["mat4x4", UniformDefault<GLMat4>]
     | ["bool[]", number, UniformDefault<GLIntVec>?]
     | ["int[]", number, UniformDefault<GLIntVec>?]
     | ["uint[]", number, UniformDefault<GLUintVec>?]
@@ -111,15 +119,18 @@ export type UniformDecl =
     | ["vec2[]", number, UniformDefault<GLVec>?]
     | ["vec3[]", number, UniformDefault<GLVec>?]
     | ["vec4[]", number, UniformDefault<GLVec>?]
-    | ["mat2[]", number, UniformDefault<GLVec>?]
-    | ["mat3[]", number, UniformDefault<GLVec>?]
-    | ["mat4[]", number, UniformDefault<GLVec>?]
-    // | ["mat2x3[]", number, UniformDefault<GLVec>?]
-    // | ["mat2x4[]", number, UniformDefault<GLVec>?]
-    // | ["mat3x2[]", number, UniformDefault<GLVec>?]
-    // | ["mat3x4[]", number, UniformDefault<GLVec>?]
-    // | ["mat4x2[]", number, UniformDefault<GLVec>?]
-    // | ["mat4x3[]", number, UniformDefault<GLVec>?]
+    // | ["mat2[]", number, UniformDefault<GLVec>?]
+    | ["mat2x2[]", number, UniformDefault<GLVec>?]
+    | ["mat2x3[]", number, UniformDefault<GLVec>?]
+    | ["mat2x4[]", number, UniformDefault<GLVec>?]
+    // | ["mat3[]", number, UniformDefault<GLVec>?]
+    | ["mat3x2[]", number, UniformDefault<GLVec>?]
+    | ["mat3x3[]", number, UniformDefault<GLVec>?]
+    | ["mat3x4[]", number, UniformDefault<GLVec>?]
+    // | ["mat4[]", number, UniformDefault<GLVec>?]
+    | ["mat4x2[]", number, UniformDefault<GLVec>?]
+    | ["mat4x3[]", number, UniformDefault<GLVec>?]
+    | ["mat4x4[]", number, UniformDefault<GLVec>?]
     | ["sampler2D[]", number, UniformDefault<GLIntVec>?]
     | ["sampler3D[]", number, UniformDefault<GLIntVec>?]
     | ["samplerCube[]", number, UniformDefault<GLIntVec>?];
