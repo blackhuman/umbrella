@@ -6,9 +6,9 @@ import {
     cos,
     defn,
     FloatSym,
-    mat2,
-    mat3,
-    mat4,
+    mat2x2,
+    mat3x3,
+    mat4x4,
     mul,
     neg,
     NumericF,
@@ -23,41 +23,41 @@ import { perpendicularCCW } from "../math/orthogonal";
 import { cossin } from "../math/sincos";
 import { m33ToM44 } from "./convert";
 
-export const rotation2 = defn("mat2", "rotation2", ["float"], (theta) => {
+export const rotation2 = defn("mat2x2", "rotation2", ["float"], (theta) => {
     let cs: Vec2Term;
-    return [(cs = sym(cossin(theta))), ret(mat2(cs, perpendicularCCW(cs)))];
+    return [(cs = sym(cossin(theta))), ret(mat2x2(cs, perpendicularCCW(cs)))];
 });
 
-export const rotationX3 = defn("mat3", "rotationX3", ["float"], (theta) => {
-    let cs: Vec2Term;
-    return [
-        (cs = sym(cossin(theta))),
-        ret(mat3(1, 0, 0, 0, $x(cs), $y(cs), 0, neg($y(cs)), $x(cs))),
-    ];
-});
-
-export const rotationY3 = defn("mat3", "rotationY3", ["float"], (theta) => {
+export const rotationX3 = defn("mat3x3", "rotationX3", ["float"], (theta) => {
     let cs: Vec2Term;
     return [
         (cs = sym(cossin(theta))),
-        ret(mat3($x(cs), 0, neg($y(cs)), 0, 1, 0, $y(cs), 0, $x(cs))),
+        ret(mat3x3(1, 0, 0, 0, $x(cs), $y(cs), 0, neg($y(cs)), $x(cs))),
     ];
 });
 
-export const rotationZ3 = defn("mat3", "rotationZ3", ["float"], (theta) => {
+export const rotationY3 = defn("mat3x3", "rotationY3", ["float"], (theta) => {
     let cs: Vec2Term;
     return [
         (cs = sym(cossin(theta))),
-        ret(mat3($x(cs), $y(cs), 0, neg($y(cs)), $x(cs), 0, 0, 0, 1)),
+        ret(mat3x3($x(cs), 0, neg($y(cs)), 0, 1, 0, $y(cs), 0, $x(cs))),
     ];
 });
 
-export const rotationX4 = defn("mat4", "rotationX4", ["float"], (theta) => {
+export const rotationZ3 = defn("mat3x3", "rotationZ3", ["float"], (theta) => {
+    let cs: Vec2Term;
+    return [
+        (cs = sym(cossin(theta))),
+        ret(mat3x3($x(cs), $y(cs), 0, neg($y(cs)), $x(cs), 0, 0, 0, 1)),
+    ];
+});
+
+export const rotationX4 = defn("mat4x4", "rotationX4", ["float"], (theta) => {
     let cs: Vec2Term;
     return [
         (cs = sym(cossin(theta))),
         ret(
-            mat4(
+            mat4x4(
                 1,
                 0,
                 0,
@@ -79,12 +79,12 @@ export const rotationX4 = defn("mat4", "rotationX4", ["float"], (theta) => {
     ];
 });
 
-export const rotationY4 = defn("mat4", "rotationY4", ["float"], (theta) => {
+export const rotationY4 = defn("mat4x4", "rotationY4", ["float"], (theta) => {
     let cs: Vec2Term;
     return [
         (cs = sym(cossin(theta))),
         ret(
-            mat4(
+            mat4x4(
                 $x(cs),
                 0,
                 neg($y(cs)),
@@ -106,12 +106,12 @@ export const rotationY4 = defn("mat4", "rotationY4", ["float"], (theta) => {
     ];
 });
 
-export const rotationZ4 = defn("mat4", "rotationZ4", ["float"], (theta) => {
+export const rotationZ4 = defn("mat4x4", "rotationZ4", ["float"], (theta) => {
     let cs: Vec2Term;
     return [
         (cs = sym(cossin(theta))),
         ret(
-            mat4(
+            mat4x4(
                 $x(cs),
                 $y(cs),
                 0,
@@ -134,7 +134,7 @@ export const rotationZ4 = defn("mat4", "rotationZ4", ["float"], (theta) => {
 });
 
 export const rotationAroundAxis3 = defn(
-    "mat3",
+    "mat3x3",
     "rotationAroundAxis3",
     ["vec3", "float"],
     (axis, theta) => {
@@ -155,7 +155,7 @@ export const rotationAroundAxis3 = defn(
             (c = sym(cos(theta))),
             (t = sym(sub(1, c))),
             ret(
-                mat3(
+                mat3x3(
                     $$($x(axis), 1, $z(axis), neg($y(axis)), c, s, s),
                     $$($y(axis), neg($z(axis)), 1, $x(axis), s, c, s),
                     $$($z(axis), $y(axis), neg($x(axis)), 1, s, s, c)
@@ -166,7 +166,7 @@ export const rotationAroundAxis3 = defn(
 );
 
 export const rotationAroundAxis4 = defn(
-    "mat4",
+    "mat4x4",
     "rotationAroundAxis4",
     ["vec3", "float"],
     (axis, theta) => [ret(m33ToM44(rotationAroundAxis3(axis, theta)))]

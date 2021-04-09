@@ -9,7 +9,7 @@ import {
     dot,
     FloatSym,
     fract,
-    mat2,
+    mat2x2,
     mul,
     ret,
     sin,
@@ -27,7 +27,9 @@ import {
  * @param p -
  */
 export const hash2 = defn("vec2", "hash2", ["vec2"], (p) => [
-    ret(fract(mul(sin(mul(p, mat2(127.1, 311.7, 269.5, 183.3))), 43758.5453))),
+    ret(
+        fract(mul(sin(mul(p, mat2x2(127.1, 311.7, 269.5, 183.3))), 43758.5453))
+    ),
 ]);
 
 /**

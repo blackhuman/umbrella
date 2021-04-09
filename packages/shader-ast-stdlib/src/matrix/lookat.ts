@@ -2,7 +2,7 @@ import {
     cross,
     defn,
     dot,
-    mat4,
+    mat4x4,
     neg,
     normalize,
     ret,
@@ -21,7 +21,7 @@ import {
  * @param up - vec3
  */
 export const lookat = defn(
-    "mat4",
+    "mat4x4",
     "lookat",
     ["vec3", "vec3", "vec3"],
     (eye, target, up) => {
@@ -33,7 +33,7 @@ export const lookat = defn(
             (x = sym(normalize(cross(up, z)))),
             (y = sym(normalize(cross(z, x)))),
             ret(
-                mat4(
+                mat4x4(
                     vec4(x, neg(dot(eye, x))),
                     vec4(up, neg(dot(eye, y))),
                     vec4(z, neg(dot(eye, z))),
