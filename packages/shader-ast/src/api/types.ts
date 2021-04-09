@@ -35,12 +35,24 @@ export type Type =
     | "bvec3[]"
     | "bvec4"
     | "bvec4[]"
-    | "mat2"
-    | "mat2[]"
-    | "mat3"
-    | "mat3[]"
-    | "mat4"
-    | "mat4[]"
+    | "mat2x2"
+    | "mat2x2[]"
+    | "mat2x3"
+    | "mat2x3[]"
+    | "mat2x4"
+    | "mat2x4[]"
+    | "mat3x2"
+    | "mat3x2[]"
+    | "mat3x3"
+    | "mat3x3[]"
+    | "mat3x4"
+    | "mat3x4[]"
+    | "mat4x2"
+    | "mat4x2[]"
+    | "mat4x3"
+    | "mat4x3[]"
+    | "mat4x4"
+    | "mat4x4[]"
     | "sampler2D"
     | "sampler2D[]"
     | "sampler3D"
@@ -81,9 +93,9 @@ export interface ArrayTypeMap {
     bvec2: "bvec2[]";
     bvec3: "bvec3[]";
     bvec4: "bvec4[]";
-    mat2: "mat2[]";
-    mat3: "mat3[]";
-    mat4: "mat4[]";
+    mat2x2: "mat2x2[]";
+    mat3x3: "mat3x3[]";
+    mat4x4: "mat4x4[]";
     sampler2D: "sampler2D[]";
     sampler3D: "sampler3D[]";
     samplerCube: "samplerCube[]";
@@ -117,9 +129,9 @@ export interface IndexTypeMap {
 }
 
 export interface MatIndexTypeMap {
-    mat2: "vec2";
-    mat3: "vec3";
-    mat4: "vec4";
+    mat2x2: "vec2";
+    mat3x3: "vec3";
+    mat4x4: "vec4";
 }
 
 export type Indexable = keyof IndexTypeMap;
@@ -130,7 +142,18 @@ export type Vec = "vec2" | "vec3" | "vec4";
 export type IVec = "ivec2" | "ivec3" | "ivec4";
 export type UVec = "uvec2" | "uvec3" | "uvec4";
 export type BVec = "bvec2" | "bvec3" | "bvec4";
-export type Mat = "mat2" | "mat3" | "mat4";
+
+export type Mat =
+    | "mat2x2"
+    | "mat2x3"
+    | "mat2x4"
+    | "mat3x2"
+    | "mat3x3"
+    | "mat3x4"
+    | "mat4x2"
+    | "mat4x3"
+    | "mat4x4";
+
 export type Sampler =
     | "sampler2D"
     | "sampler3D"

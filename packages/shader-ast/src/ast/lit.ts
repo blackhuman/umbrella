@@ -284,31 +284,89 @@ export function bvec4(...xs: any[]): Lit<"bvec4"> {
     return $gvec4("bvec4", $bvec, xs);
 }
 
-export function mat2(): Lit<"mat2">;
-export function mat2(x: NumericF): Lit<"mat2">;
-export function mat2(x: Vec2Term, y: Vec2Term): Lit<"mat2">;
+export function mat2x2(): Lit<"mat2x2">;
+export function mat2x2(x: NumericF): Lit<"mat2x2">;
+export function mat2x2(x: Vec2Term, y: Vec2Term): Lit<"mat2x2">;
 // prettier-ignore
-export function mat2(a: NumericF, b: NumericF, c: NumericF, d: NumericF): Lit<"mat2">;
-export function mat2(...xs: any[]): Lit<"mat2"> {
-    return $gmat("mat2", ["n", "n", "vv"], xs);
+export function mat2x2(a: NumericF, b: NumericF, c: NumericF, d: NumericF): Lit<"mat2x2">;
+export function mat2x2(...xs: any[]): Lit<"mat2x2"> {
+    return $gmat("mat2x2", ["n", "n", "vv"], xs);
 }
 
-export function mat3(): Lit<"mat3">;
-export function mat3(x: NumericF): Lit<"mat3">;
+export function mat2x3(): Lit<"mat2x3">;
+export function mat2x3(x: NumericF): Lit<"mat2x3">;
+export function mat2x3(x: Vec3Term, y: Vec3Term): Lit<"mat2x3">;
 // prettier-ignore
-export function mat3(x: Vec3Term, y: Vec3Term, z: Vec3Term): Lit<"mat3">;
-// prettier-ignore
-export function mat3(a: NumericF, b: NumericF, c: NumericF, d: NumericF, e: NumericF, f: NumericF, g: NumericF, h: NumericF, i: NumericF): Lit<"mat3">;
-export function mat3(...xs: any[]): Lit<"mat3"> {
-    return $gmat("mat3", ["n", "n", , "vvv"], xs);
+export function mat2x3(a: NumericF, b: NumericF, c: NumericF, d: NumericF, e: NumericF, f: NumericF): Lit<"mat2x3">;
+export function mat2x3(...xs: any[]): Lit<"mat2x3"> {
+    return $gmat("mat2x3", ["n", "n", "vv"], xs);
 }
 
-export function mat4(): Lit<"mat4">;
-export function mat4(x: NumericF): Lit<"mat4">;
+export function mat2x4(): Lit<"mat2x4">;
+export function mat2x4(x: NumericF): Lit<"mat2x4">;
+export function mat2x4(x: Vec4Term, y: Vec4Term): Lit<"mat2x4">;
 // prettier-ignore
-export function mat4(x: Vec4Term, y: Vec4Term, z: Vec4Term, w: Vec4Term): Lit<"mat4">;
+export function mat2x4(a: NumericF, b: NumericF, c: NumericF, d: NumericF, e: NumericF, f: NumericF, g: NumericF, h: NumericF): Lit<"mat2x4">;
+export function mat2x4(...xs: any[]): Lit<"mat2x4"> {
+    return $gmat("mat2x4", ["n", "n", "vv"], xs);
+}
+
+export function mat3x2(): Lit<"mat3x2">;
+export function mat3x2(x: NumericF): Lit<"mat3x2">;
 // prettier-ignore
-export function mat4(a: NumericF, b: NumericF, c: NumericF, d: NumericF, e: NumericF, f: NumericF, g: NumericF, h: NumericF, i: NumericF, j: NumericF, k: NumericF, l: NumericF, m: NumericF, n: NumericF, o: NumericF, p: NumericF): Lit<"mat4">;
-export function mat4(...xs: any[]): Lit<"mat4"> {
-    return $gmat("mat4", ["n", "n", , , "vvvv"], xs);
+export function mat3x2(x: Vec2Term, y: Vec2Term, z: Vec2Term): Lit<"mat3x2">;
+// prettier-ignore
+export function mat3x2(a: NumericF, b: NumericF, c: NumericF, d: NumericF, e: NumericF, f: NumericF): Lit<"mat3x2">;
+export function mat3x2(...xs: any[]): Lit<"mat3x2"> {
+    return $gmat("mat3x2", ["n", "n", , "vvv"], xs);
+}
+
+export function mat3x3(): Lit<"mat3x3">;
+export function mat3x3(x: NumericF): Lit<"mat3x3">;
+// prettier-ignore
+export function mat3x3(x: Vec3Term, y: Vec3Term, z: Vec3Term): Lit<"mat3x3">;
+// prettier-ignore
+export function mat3x3(a: NumericF, b: NumericF, c: NumericF, d: NumericF, e: NumericF, f: NumericF, g: NumericF, h: NumericF, i: NumericF): Lit<"mat3x3">;
+export function mat3x3(...xs: any[]): Lit<"mat3x3"> {
+    return $gmat("mat3x3", ["n", "n", , "vvv"], xs);
+}
+
+export function mat3x4(): Lit<"mat3x4">;
+export function mat3x4(x: NumericF): Lit<"mat3x4">;
+// prettier-ignore
+export function mat3x4(x: Vec4Term, y: Vec4Term, z: Vec4Term): Lit<"mat3x4">;
+// prettier-ignore
+export function mat3x4(a: NumericF, b: NumericF, c: NumericF, d: NumericF, e: NumericF, f: NumericF, g: NumericF, h: NumericF, i: NumericF, j:NumericF, k:NumericF, l:NumericF): Lit<"mat3x4">;
+export function mat3x4(...xs: any[]): Lit<"mat3x4"> {
+    return $gmat("mat3x4", ["n", "n", , "vvv"], xs);
+}
+
+export function mat4x2(): Lit<"mat4x2">;
+export function mat4x2(x: NumericF): Lit<"mat4x2">;
+// prettier-ignore
+export function mat4x2(x: Vec2Term, y: Vec2Term, z: Vec2Term, w: Vec2Term): Lit<"mat4x2">;
+// prettier-ignore
+export function mat4x2(a: NumericF, b: NumericF, c: NumericF, d: NumericF, e: NumericF, f: NumericF, g: NumericF, h: NumericF): Lit<"mat4x2">;
+export function mat4x2(...xs: any[]): Lit<"mat4x2"> {
+    return $gmat("mat4x2", ["n", "n", , , "vvvv"], xs);
+}
+
+export function mat4x3(): Lit<"mat4x3">;
+export function mat4x3(x: NumericF): Lit<"mat4x3">;
+// prettier-ignore
+export function mat4x3(x: Vec3Term, y: Vec3Term, z: Vec3Term, w: Vec3Term): Lit<"mat4x3">;
+// prettier-ignore
+export function mat4x3(a: NumericF, b: NumericF, c: NumericF, d: NumericF, e: NumericF, f: NumericF, g: NumericF, h: NumericF, i: NumericF, j: NumericF, k: NumericF, l: NumericF): Lit<"mat4x3">;
+export function mat4x3(...xs: any[]): Lit<"mat4x3"> {
+    return $gmat("mat4x3", ["n", "n", , , "vvvv"], xs);
+}
+
+export function mat4x4(): Lit<"mat4x4">;
+export function mat4x4(x: NumericF): Lit<"mat4x4">;
+// prettier-ignore
+export function mat4x4(x: Vec4Term, y: Vec4Term, z: Vec4Term, w: Vec4Term): Lit<"mat4x4">;
+// prettier-ignore
+export function mat4x4(a: NumericF, b: NumericF, c: NumericF, d: NumericF, e: NumericF, f: NumericF, g: NumericF, h: NumericF, i: NumericF, j: NumericF, k: NumericF, l: NumericF, m: NumericF, n: NumericF, o: NumericF, p: NumericF): Lit<"mat4x4">;
+export function mat4x4(...xs: any[]): Lit<"mat4x4"> {
+    return $gmat("mat4x4", ["n", "n", , , "vvvv"], xs);
 }

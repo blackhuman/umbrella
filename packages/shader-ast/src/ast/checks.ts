@@ -2,7 +2,7 @@ import { isPlainObject } from "@thi.ng/checks";
 import type { Term } from "../api/nodes";
 
 const RE_VEC = /^[iub]?vec[234]$/;
-const RE_MAT = /^mat[234]$/;
+const RE_MAT = /^mat[234]x[234]$/;
 
 /**
  * Returns true if given `t` is a {@link Term}-like object.

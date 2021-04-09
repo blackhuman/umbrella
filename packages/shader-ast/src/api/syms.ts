@@ -9,21 +9,33 @@ export type BoolSym = Sym<"bool">;
 export type FloatSym = Sym<"float">;
 export type IntSym = Sym<"int">;
 export type UintSym = Sym<"uint">;
+
 export type Vec2Sym = Sym<"vec2">;
 export type Vec3Sym = Sym<"vec3">;
 export type Vec4Sym = Sym<"vec4">;
+
 export type IVec2Sym = Sym<"ivec2">;
 export type IVec3Sym = Sym<"ivec3">;
 export type IVec4Sym = Sym<"ivec4">;
+
 export type UVec2Sym = Sym<"uvec2">;
 export type UVec3Sym = Sym<"uvec3">;
 export type UVec4Sym = Sym<"uvec4">;
+
 export type BVec2Sym = Sym<"bvec2">;
 export type BVec3Sym = Sym<"bvec3">;
 export type BVec4Sym = Sym<"bvec4">;
-export type Mat2Sym = Sym<"mat2">;
-export type Mat3Sym = Sym<"mat3">;
-export type Mat4Sym = Sym<"mat4">;
+
+export type Mat2Sym = Sym<"mat2x2">;
+export type Mat23Sym = Sym<"mat2x3">;
+export type Mat24Sym = Sym<"mat2x4">;
+export type Mat32Sym = Sym<"mat3x2">;
+export type Mat3Sym = Sym<"mat3x3">;
+export type Mat34Sym = Sym<"mat3x4">;
+export type Mat42Sym = Sym<"mat4x2">;
+export type Mat43Sym = Sym<"mat4x3">;
+export type Mat4Sym = Sym<"mat4x4">;
+
 export type Sampler2DSym = Sym<"sampler2D">;
 export type Sampler3DSym = Sym<"sampler3D">;
 export type SamplerCubeSym = Sym<"samplerCube">;

@@ -2,6 +2,7 @@ export * from "./api/function";
 export * from "./api/nodes";
 export * from "./api/ops";
 export * from "./api/precision";
+export * from "./api/shape";
 export * from "./api/swizzles";
 export * from "./api/syms";
 export * from "./api/tags";
