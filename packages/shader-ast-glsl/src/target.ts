@@ -41,10 +41,12 @@ export const targetGLSL = (opts?: Partial<GLSLOpts>) => {
         prelude: "",
         ...opts,
     };
+    const isGL2 = _opts.version >= GLSLVersion.GLES_300;
     const isVS = _opts.type === "vs";
 
     // TODO update once we have struct support
-    const $type = (t: Type) => t;
+    const $type = (t: Type) =>
+        !isGL2 && t.startsWith("mat") ? t.substr(0, 4) : t;
 
     const $list = (body: Term<any>[], sep = ", ") => body.map(emit).join(sep);
 
@@ -55,7 +57,7 @@ export const targetGLSL = (opts?: Partial<GLSLOpts>) => {
         const res: string[] = [];
         if (opts.type) {
             let type: string;
-            if (_opts.version < GLSLVersion.GLES_300) {
+            if (!isGL2) {
                 if (isVS) {
                     type = (<any>{
                         in: "attribute",
@@ -94,8 +96,8 @@ export const targetGLSL = (opts?: Partial<GLSLOpts>) => {
         arg: (t) => $decl(t, true),
 
         array_init: (t) =>
-            _opts.version >= GLSLVersion.GLES_300
-                ? `${t.type}(${$list(t.init)})`
+            isGL2
+                ? `${$type(t.type)}(${$list(t.init)})`
                 : unsupported(
                       `array initializers not available in GLSL ${_opts.version}`
                   ),
@@ -107,7 +109,7 @@ export const targetGLSL = (opts?: Partial<GLSLOpts>) => {
         call: $fn,
 
         call_i: (t) =>
-            t.id === "texture" && _opts.version < GLSLVersion.GLES_300
+            !isGL2 && t.id === "texture"
                 ? `${t.id}${(<Sym<any>>t.args[0]).type.substr(7)}(${$list(
                       t.args
                   )})`
@@ -143,10 +145,12 @@ export const targetGLSL = (opts?: Partial<GLSLOpts>) => {
                         : `float(${emit(v)})`;
                 case "int":
                 case "uint":
-                    return isNumber(v) ? String(v) : `${t.type}(${emit(v)})`;
+                    return isNumber(v)
+                        ? String(v)
+                        : `${$type(t.type)}(${emit(v)})`;
                 default: {
                     if (isVec(t) || isMat(t)) {
-                        return `${t.type}(${$list(v)})`;
+                        return `${$type(t.type)}(${$list(v)})`;
                     }
                     return unsupported(`unknown type: ${t.type}`);
                 }
