@@ -63,9 +63,9 @@ const PRELUDE = [
     "uvec2",
     "uvec3",
     "uvec4",
-    "mat2",
-    "mat3",
-    "mat4",
+    "mat2x2",
+    "mat3x3",
+    "mat4x4",
     "sampler2D",
     "sampler3D",
     "samplerCube",
@@ -189,9 +189,9 @@ export const targetJS = () => {
                 case "bvec2":
                 case "bvec3":
                 case "bvec4":
-                case "mat2":
-                case "mat3":
-                case "mat4":
+                case "mat2x2":
+                case "mat3x3":
+                case "mat4x4":
                     return $vec(t);
                 default:
                     return unsupported(`unknown type: ${t.type}`);
