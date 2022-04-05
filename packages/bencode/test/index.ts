@@ -5,6 +5,7 @@ import { decode, encode } from "../src/index.js"
 
 const src = { foo: [1, "a", { bar: "baz" }, [42.123]] };
 const src2 = { foo: new Uint8Array([0, 1, 2, 3, 255, 254, 253]) };
+const srcIntegerNegative = { foo: -123 };
 
 // prettier-ignore
 group("bencode", {
@@ -30,5 +31,10 @@ group("bencode", {
             )
         )
         assert.ok(equiv(decode(bytes, false), src2));
+    },
+
+    "roundtrip (integer negative)": () => {
+        let bytes = encode(srcIntegerNegative);
+        assert.deepStrictEqual(decode(bytes, false), srcIntegerNegative)
     },
 });
